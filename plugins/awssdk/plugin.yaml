@@ -581,9 +581,9 @@ node_types:
     interfaces:
       Standard:
         create:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.instance.create
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.instances.create
         start:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.instance.start
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.instances.start
           inputs:
             start_retry_interval:
               description: Polling interval until the server is active in seconds
@@ -597,13 +597,13 @@ node_types:
               type: string
               default: ''
         stop:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.instance.stop
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.instances.stop
         delete:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.instance.delete
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.instances.delete
       Validation:
         type: aria.aws.interfaces.Validation
         creation:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.instance.creation_validation
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.instances.creation_validation
     requirements:
       - elastic_ip:
           capability: tosca.capabilities.Node
@@ -686,13 +686,13 @@ node_types:
     interfaces:
       Standard:
         create:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.elasticip.create
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.elasticip.create
         delete:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.elasticip.delete
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.elasticip.delete
       Validation:
         type: aria.aws.interfaces.Validation
         creation:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.elasticip.creation_validation
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.elasticip.creation_validation
 
   aria.aws.nodes.SecurityGroup:
     derived_from: tosca.nodes.Root
@@ -737,15 +737,15 @@ node_types:
     interfaces:
       Standard:
         create:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.securitygroup.create
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.securitygroup.create
         start:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.securitygroup.start
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.securitygroup.start
         delete:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.securitygroup.delete
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.securitygroup.delete
       Validation:
         type: aria.aws.interfaces.Validation
         creation:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.securitygroup.creation_validation
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.securitygroup.creation_validation
     requirements:
       - vpc:
           capability: tosca.capabilities.Node
@@ -878,13 +878,13 @@ node_types:
     interfaces:
       Standard:
         create:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.keypair.create
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.keypair.create
         delete:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.keypair.delete
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.keypair.delete
       Validation:
         type: aria.aws.interfaces.Validation
         creation:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.keypair.creation_validation
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.keypair.creation_validation
 
   aria.aws.nodes.ElasticLoadBalancer:
     derived_from: tosca.nodes.LoadBalancer
@@ -1524,7 +1524,7 @@ node_types:
     interfaces:
       Standard:
         create:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.securitygroup.create_rule
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.securitygroup.create_rule
           inputs:
             args:
               type: map
@@ -1532,7 +1532,7 @@ node_types:
                 type: aria.aws.datatypes.SecurityGroupRule
               default: {}
         delete:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.securitygroup.delete_rule
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.securitygroup.delete_rule
           inputs:
             args:
               type: map
@@ -1547,9 +1547,9 @@ relationship_types:
     interfaces:
       Configure:
         add_source:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.elasticip.associate
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.elasticip.associate
         remove_source:
-          implementation: cloudify-awssdk-plugin > cloudify_aws.ec2.elasticip.disassociate
+          implementation: cloudify-awssdk-plugin > cloudify_awssdk.ec2.resources.elasticip.disassociate
 
   aria.aws.relationships.InstanceConnectedToElasticIP:
     derived_from: aria.aws.relationships.ConnectedToElasticIP
