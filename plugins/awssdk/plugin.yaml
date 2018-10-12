@@ -40,7 +40,7 @@ data_types:
           The ID of your AWS SECRET KEY.
         type: string
         required: false
-      region:
+      region_name:
         description: >
           This is for backward compatibility with version 1.2.
         type: string
@@ -60,7 +60,7 @@ data_types:
         description: >
           The ELB Region RegionName, such as us-east-1.
           (Not us-east-1b, which is an availability zone, or US East, which is a Region.)
-          Required for aws_config for node type aria.aws.nodes.ElasticLoadBalancer.
+          Required for client_config for node type aria.aws.nodes.ElasticLoadBalancer.
         type: string
         required: false
       elb_region_endpoint:
@@ -570,7 +570,7 @@ node_types:
         type: aria.aws.datatypes.RunInstancesParameters
         default: {}
         required: false
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -678,7 +678,7 @@ node_types:
           Set this to 'vpc' if you want to use VPC.
         type: string
         required: false
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -729,7 +729,7 @@ node_types:
         entry_schema:
           type: aria.aws.datatypes.SecurityGroupRule
         default: []
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -792,7 +792,7 @@ node_types:
         description: >
           The device on the instance
         type: string
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -867,7 +867,7 @@ node_types:
           process, this refers to the local computer. If this will run on the manager,
           this will be saved on the manager.
         type: string
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -980,7 +980,7 @@ node_types:
           type: aria.aws.datatypes.LoadBalancerComplexListener
         default: []
         required: false
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -1030,7 +1030,7 @@ node_types:
         type: string
         default: default
         required: false
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -1086,7 +1086,7 @@ node_types:
         type: string
         default: ''
         required: false
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -1132,7 +1132,7 @@ node_types:
         default: {}
         entry_schema:
           type: string  # http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -1251,7 +1251,7 @@ node_types:
           type: aria.aws.datatypes.NetworkAclEntry
         default: []
         required: false
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -1337,7 +1337,7 @@ node_types:
         type: string
         default: ''
         required: false
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -1384,7 +1384,7 @@ node_types:
         default: {}
         entry_schema:
           type: string  # http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -1453,7 +1453,7 @@ node_types:
           Any parameters accepted by the create_network_interface operation.
         type: aria.aws.datatypes.NetworkInterfaceCreateParameters
         required: false
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
@@ -1503,7 +1503,7 @@ node_types:
           type: aria.aws.datatypes.SecurityGroupRule
         default: []
         required: false
-      aws_config:
+      client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
         type: aria.aws.datatypes.Config
