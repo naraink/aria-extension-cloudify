@@ -525,6 +525,9 @@ node_types:
   aria.aws.nodes.Instance:
     derived_from: tosca.nodes.Compute
     properties:
+      os_family:
+        type: string
+        default: Ubuntu
       use_external_resource:
         description: >
           Indicate whether the resource exists or it should be created,
