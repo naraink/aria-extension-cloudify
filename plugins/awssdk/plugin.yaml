@@ -27,6 +27,28 @@ topology_template:
 
 
 data_types:
+  aria.aws.datatypes.Placement:
+    properties:
+      AvailabilityZone: 
+         description: >
+         type: string
+  aria.aws.datatypes.Kwargs:
+  #The kwargs key accepts the AWSSDK API method arguments that will be called during the cloudify.interfaces.lifecycle.configure operation.
+    properties:
+      MaxCount:
+        description: >
+        type: integer
+        required: false
+      MinCount:
+        description: >
+        type: integer
+      ImageId:
+        description: >
+        type: string
+      Placement:
+        description: >
+        type: aria.aws.datatypes.Placement
+
   aria.aws.datatypes.Config:
     properties:
     # Partially based on: http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
@@ -67,6 +89,11 @@ data_types:
         description: >
           The endpoint for the given ELB region.
         type: string
+        required: false
+      kwargs:
+        description: >
+          The kwargs key accepts the AWSSDK API method arguments that will be called during the cloudify.interfaces.lifecycle.configure operation.
+        type: aria.aws.datatypes.Kwargs
         required: false
 
   aria.aws.datatypes.Route:
@@ -576,6 +603,11 @@ node_types:
       client_config:
         description: >
           A dictionary of values to pass to authenticate with the AWS API.
+        type: aria.aws.datatypes.Config
+        required: false
+      resource_config:
+        description: >
+          A dictionary of values to pass to AWS instance creation 
         type: aria.aws.datatypes.Config
         required: false
     attributes:
