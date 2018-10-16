@@ -29,7 +29,7 @@ topology_template:
 data_types:
   aria.aws.datatypes.Placement:
     properties:
-      AvailabilityZone: 
+      AvailabilityZone:
          description: >
          type: string
   aria.aws.datatypes.Kwargs:
@@ -42,6 +42,12 @@ data_types:
       MinCount:
         description: >
         type: integer
+      InstanceType:
+        description: >
+        type: string
+      SubnetId:
+        description: >
+        type: string
       ImageId:
         description: >
         type: string
@@ -607,7 +613,7 @@ node_types:
         required: false
       resource_config:
         description: >
-          A dictionary of values to pass to AWS instance creation 
+          A dictionary of values to pass to AWS instance creation
         type: aria.aws.datatypes.Config
         required: false
     attributes:
@@ -1787,4 +1793,3 @@ relationship_types:
 
   aria.aws.relationships.RuleContainedInSecurityGroup:
     derived_from: tosca.relationships.HostedOn
-
